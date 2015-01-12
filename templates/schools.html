@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <h2>Schools</h2>
+
+  <div class="list-group">
+    {% for s in schools %}
+      <a href="{{ url_for('view_school', sid=s.id) }}" class="list-group-item">
+        <span class="badge">{{ s.teacherCount() }}</span>
+          {{ s.school }}
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}

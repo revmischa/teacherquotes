@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block subheader %}
+  <a href="{{ url_for('view_school', sid=teacher.school.id) }}">{{ teacher.school.school }}</a>
+  {{ teacher.firstname }} {{ teacher.lastname }}
+{% endblock %}
+
+{% block body %}
+  <ul class="list-group">
+    {% for q in quotes %}
+      <li>
+        <h4>Posted by {{ q.poster }} - (rating: {{ q.rating }}, date: {{ q.postdate }})</h4>
+
+        <blockquote style="white-space: pre-wrap;">{{ q.quoteFixed() }}</blockquote>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
