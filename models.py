@@ -6,7 +6,7 @@ class School(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     school = db.Column(db.String())
-    teachers = db.relationship("Teacher")
+    teachers = db.relationship("Teacher", order_by='Teacher.lastname')
 
     def teacherCount(self):
         return len(self.teachers)
@@ -18,7 +18,7 @@ class Teacher(db.Model):
     firstname = db.Column(db.String())
     lastname = db.Column(db.String())
     schoolid = db.Column(db.Integer(), db.ForeignKey("schooldata.id"))
-    quotes = db.relationship("Quote")
+    quotes = db.relationship("Quote", order_by='Quote.postdate')
     school = db.relationship("School", backref="teacherdata")
 
     def quoteCount(self):

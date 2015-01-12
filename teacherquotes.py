@@ -14,7 +14,7 @@ def robots():
 
 @app.route('/')
 def list_schools():
-    schools = School.query.all()
+    schools = School.query.order_by(School.school).all()
     return render_template('schools.html', schools=schools)
 
 @app.route('/school/<sid>')
