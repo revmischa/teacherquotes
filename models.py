@@ -37,4 +37,6 @@ class Quote(db.Model):
 
     def quoteFixed(self):
         q = self.quote
-        return q.replace("\\\\'", "'")
+        q = q.replace("\\\\'", "'")
+        q = q.replace('\"', '"')
+        return q
