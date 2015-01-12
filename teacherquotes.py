@@ -8,6 +8,10 @@ db = SQLAlchemy(app)
 
 from models import *
 
+@app.route('/robots.txt')
+def robots():
+    return render_template('robots.txt')
+
 @app.route('/')
 def list_schools():
     schools = School.query.all()
