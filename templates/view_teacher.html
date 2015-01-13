@@ -9,9 +9,9 @@
   <ul class="list-group">
     {% for q in quotes %}
       <li>
-        <h4>Posted by {{ q.poster }} - (rating: {{ q.rating }}, date: {{ q.postdate }})</h4>
+        <h4>Posted by {{ q.poster }} - ({% if q.rating %}rating: {{ q.rating }}, {% endif %}date: {{ q.postdate }})</h4>
 
-        <blockquote style="white-space: pre-wrap;">{{ q.quoteFixed() }}</blockquote>
+        <blockquote style="white-space: pre-wrap;">{{ q.quoteFixed() | safe }}</blockquote>
       </li>
     {% endfor %}
   </ul>

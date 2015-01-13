@@ -8,7 +8,7 @@ class Config(object):
         SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
 class ProductionConfig(Config):
-    DEBUG = False
+    DEBUG = True
     if os.environ.has_key('HEROKU_POSTGRESQL_VIOLET_URL'):
         SQLALCHEMY_DATABASE_URI = os.environ['HEROKU_POSTGRESQL_VIOLET_URL']
 
